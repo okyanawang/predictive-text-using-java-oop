@@ -50,6 +50,7 @@ public class PredictivePrototype {
 		
 		// read file words.txt
 		try {
+			// file name could be different, depend on your directory
 			File words = new File("D:\\Eclipse\\workspace\\Quis2\\src\\predictive\\words.txt");
 			Scanner file = new Scanner(words);
 			
