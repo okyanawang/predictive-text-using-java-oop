@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+// ini class buat ngetes doang, ntar kaga masuk ke pengumpulan
 public class test {
 
 	public static void main(String[] args) {
