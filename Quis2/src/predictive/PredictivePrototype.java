@@ -98,7 +98,7 @@ public class PredictivePrototype {
 							break;
 						}
 					}
-					// if the words is a correct pair of the numbers then add it to stringSet 
+					// if the word is a correct pair of the numbers then add it to stringSet 
 					if (temp) {
 						stringSet.add(data);
 					}
