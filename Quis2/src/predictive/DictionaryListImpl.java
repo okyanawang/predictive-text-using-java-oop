@@ -1,9 +1,10 @@
 package predictive;
-import java.io.File;
 import java.io.*;
 import java.util.*;
 
 public class DictionaryListImpl {
+	
+	static ArrayList<WordSig> diaword = new ArrayList<WordSig>();
 	
 	public static String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
@@ -34,9 +35,40 @@ public class DictionaryListImpl {
 		return sb.toString();
 	}
 	
+	public static Set<String> signatureToWords(String signature){
+		Set<String> stringSet = new HashSet<String>();
+		int num = Integer.parseInt(signature);
+		
+		int l = 0, r = diaword.size() - 1;
+		while (l <= r) {
+            int m = l + (r - l) / 2;
+            
+            String temp = diaword.get(m).sig();
+            // Check if x is present at mid
+            if (Integer.parseInt(temp) == num) {
+            	int yunjin = m;
+            	while(Integer.parseInt(diaword.get(yunjin).sig()) == num)
+            		yunjin--;
+            	yunjin++;
+            	for(int i = yunjin; i <= m; i++) {
+            		stringSet.add(diaword.get(i).wor());
+            	}
+            }
+                
+ 
+            // If x greater, ignore left half
+            if (Integer.parseInt(temp) < num)
+                l = m + 1;
+ 
+            // If x is smaller, ignore right half
+            else
+                r = m - 1;
+        }
+		
+		return stringSet;
+	}
 	public DictionaryListImpl() {
 //		Set<String> stringSet = new HashSet<String>();
-		ArrayList<WordSig> diaword = new ArrayList<WordSig>();
 		
 		// read file words.txt
 		try {

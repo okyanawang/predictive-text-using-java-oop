@@ -9,12 +9,21 @@ public class WordSig implements Comparable <WordSig>{
 		this.words = Tarte;
 		this.signature = Maha;
 	}
+	
+	public String sig() {
+		return this.signature;
+	}
+	
+	public String wor() {
+		return this.words;
+	}
+	
 	public int compareTo(WordSig ws) {
 		String temp = this.signature;
 		int suzu = Integer.parseInt(temp);
 		int mamako = Integer.parseInt(ws.signature);
 		if(suzu > mamako) return 1;
-		else if(suzu > mamako) return -1;
+		else if(suzu < mamako) return -1;
 		else return 0;
 	}
 }
