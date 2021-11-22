@@ -1,35 +1,9 @@
 package predictive;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 public class DictionaryListImpl {
-
-	public DictionaryListImpl() {
-		Set<String> stringSet = new HashSet<String>();
-		
-		// read file words.txt
-		try {
-			File words = new File("words.txt");
-			Scanner file = new Scanner(words);
-			
-			// if the file has next line
-			while (file.hasNextLine()) {
-				String data = file.nextLine();
-			}	
-				
-			// close the opened file
-			file.close();
-	    } catch (FileNotFoundException e) { // if the file not found
-	    	System.out.println("An error occurred.");
-	    	e.printStackTrace();
-	    }
-		
-		// return the result
-		return stringSet;
-	}
 	
 	public static String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
@@ -58,6 +32,33 @@ public class DictionaryListImpl {
 			}
 		}
 		return sb.toString();
+	}
+	
+	public DictionaryListImpl() {
+//		Set<String> stringSet = new HashSet<String>();
+		ArrayList<WordSig> diaword = new ArrayList<WordSig>();
+		
+		// read file words.txt
+		try {
+			File words = new File("words.txt");
+			Scanner file = new Scanner(words);
+			
+			// if the file has next line
+			while (file.hasNextLine()) {
+				String data = file.nextLine();
+				WordSig aisha = new WordSig(data, wordToSignature(data));
+				diaword.add(aisha);
+			}	
+			Collections.sort(diaword);
+			// close the opened file
+			file.close();
+	    } catch (FileNotFoundException e) { // if the file not found
+	    	System.out.println("An error occurred.");
+	    	e.printStackTrace();
+	    }
+		
+		// return the result
+//		return stringSet;
 	}
 
 }
