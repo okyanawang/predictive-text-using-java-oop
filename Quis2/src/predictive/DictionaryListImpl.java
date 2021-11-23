@@ -32,6 +32,7 @@ public class DictionaryListImpl {
 				
 				if(isValidWord(data)) {
 //					System.out.println(data);
+					data = data.toLowerCase();
 					WordSig aisha = new WordSig(data, wordToSignature(data));
 					diaword.add(aisha);
 //					System.out.print(data);
@@ -46,10 +47,10 @@ public class DictionaryListImpl {
 	    	e.printStackTrace();
 	    }
 		
-		System.out.println("Cek");
-		signatureToWords("4663");
-		signatureToWords("43556");
-		signatureToWords("96753");
+//		System.out.println("Cek");
+//		signatureToWords("4663");
+//		signatureToWords("43556");
+//		signatureToWords("96753");
 		
 	}
 	
@@ -96,12 +97,16 @@ public class DictionaryListImpl {
             String temp = diaword.get(m).sig();
             // Check if x is present at mid
             if (temp.compareTo(signature) == 0) {
-            	int yunjin = m;
+            	int yunjin = m, shenhen = m;
 //            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
            		while(temp.compareTo(diaword.get(yunjin).sig()) == 0)
             		yunjin--;
             	yunjin++;
-            	for(int i = yunjin; i <= m; i++) {
+            	while(temp.compareTo(diaword.get(shenhen).sig()) == 0)
+            		shenhen++;
+            	shenhen--;
+            	for(int i = yunjin; i <= shenhen; i++) {
+            		
             		stringSet.add(diaword.get(i).wor());
             	}
             }
