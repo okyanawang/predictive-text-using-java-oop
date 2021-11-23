@@ -29,10 +29,13 @@ public class DictionaryListImpl {
 			// if the file has next line
 			while (file.hasNextLine()) {
 				String data = file.nextLine();
+				
 				if(isValidWord(data)) {
 //					System.out.println(data);
 					WordSig aisha = new WordSig(data, wordToSignature(data));
 					diaword.add(aisha);
+//					System.out.print(data);
+//					System.out.println(wordToSignature(data));
 				}
 			}	
 			Collections.sort(diaword);
@@ -84,7 +87,7 @@ public class DictionaryListImpl {
 		Long num = Long.parseLong(signature);
 		
 		int l = 0, r = diaword.size() - 1;
-		System.out.println("yow" + r);
+		System.out.println("yow" + r + "sz");
 		while (l <= r) {
             int m = l + (r - l) / 2;
             

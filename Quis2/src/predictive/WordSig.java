@@ -21,10 +21,10 @@ public class WordSig implements Comparable <WordSig>{
 	public int compareTo(WordSig ws) {
 		String temp = this.signature;
 //		System.out.println("Yowww");
-		long suzu = Long.parseLong(temp);
-		long mamako = Long.parseLong(ws.signature);
-		if(suzu > mamako) return 1;
-		else if(suzu < mamako) return -1;
+//		long suzu = Long.parseLong(temp);
+//		long mamako = Long.parseLong(ws.signature);
+		if (temp.compareTo(ws.signature) > 0) return 1;
+		else if(temp.compareTo(ws.signature) < 0) return -1;
 		else return 0;
 	}
 }

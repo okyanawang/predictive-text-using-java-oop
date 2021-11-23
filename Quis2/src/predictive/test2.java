@@ -10,8 +10,8 @@ public class test2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		DictionaryListImpl.DictionaryListImpl();
-//		DictionaryListImpl var = new DictionaryListImpl();
-		DictionaryListImpl();
+		DictionaryListImpl var = new DictionaryListImpl();
+//		DictionaryListImpl();
 		
 		String str = "hello"; 
 //				"abcdefghijklmnopqrstuvwxyz";
