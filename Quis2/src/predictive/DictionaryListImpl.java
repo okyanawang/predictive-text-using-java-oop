@@ -2,7 +2,7 @@ package predictive;
 import java.io.*;
 import java.util.*;
 
-public class DictionaryListImpl {
+public class DictionaryListImpl implements Dictionary{
 	
 	static ArrayList<WordSig> diaword = new ArrayList<WordSig>();
 	
@@ -54,7 +54,7 @@ public class DictionaryListImpl {
 		
 	}
 	
-	public static String wordToSignature(String word) {
+	public String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
 		word = word.toLowerCase();
@@ -83,14 +83,13 @@ public class DictionaryListImpl {
 		return sb.toString();
 	}
 	
-	public static Set<String> signatureToWords(String signature){
+	public Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
 //		Long num = Long.parseLong(signature);
 		
 //		temp.compareTo(ws.signature)
 		
 		int l = 0, r = diaword.size() - 1;
-		System.out.println("yow" + r + "sz");
 		while (l <= r) {
             int m = l + (r - l) / 2;
             

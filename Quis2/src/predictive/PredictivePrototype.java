@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class PredictivePrototype {
+public class PredictivePrototype implements Dictionary{
 	private static boolean isValidWord(String word) {
 		for (int i=0; i<word.length(); i++) {
 			
@@ -16,7 +16,7 @@ public class PredictivePrototype {
 		return true;
 	}
 	
-	public static String wordToSignature(String word) {
+	public String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
 		word = word.toLowerCase();
@@ -45,7 +45,7 @@ public class PredictivePrototype {
 		return sb.toString();
 	}
 	
-	public static Set<String> signatureToWords(String signature){
+	public Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
 		
 		// read file words.txt
