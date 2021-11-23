@@ -6,6 +6,50 @@ public class DictionaryListImpl {
 	
 	static ArrayList<WordSig> diaword = new ArrayList<WordSig>();
 	
+	private static boolean isValidWord(String word) {
+		for (int i=0; i<word.length(); i++) {
+			
+			if (word.charAt(i) >= 97 && word.charAt(i) <= 122){ // if it is lower case-letter, then do nothing
+			}else if (word.charAt(i) >= 65 && word.charAt(i) <= 90) { // if it is upper-case letter, then do nothing
+			}else { // if not upper-case letter or lower-case letter then return false
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public DictionaryListImpl() {
+		
+		// read file words.txt
+		
+		try {
+			File words = new File("words.txt");
+			Scanner file = new Scanner(words);
+			
+			// if the file has next line
+			while (file.hasNextLine()) {
+				String data = file.nextLine();
+				if(isValidWord(data)) {
+//					System.out.println(data);
+					WordSig aisha = new WordSig(data, wordToSignature(data));
+					diaword.add(aisha);
+				}
+			}	
+			Collections.sort(diaword);
+			// close the opened file
+			file.close();
+	    } catch (FileNotFoundException e) { // if the file not found
+	    	System.out.println("An error occurred.");
+	    	e.printStackTrace();
+	    }
+		
+		System.out.println("Cek");
+		signatureToWords("4663");
+		signatureToWords("43556");
+		signatureToWords("96753");
+		
+	}
+	
 	public static String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
@@ -37,17 +81,18 @@ public class DictionaryListImpl {
 	
 	public static Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
-		int num = Integer.parseInt(signature);
+		Long num = Long.parseLong(signature);
 		
 		int l = 0, r = diaword.size() - 1;
+		System.out.println("yow" + r);
 		while (l <= r) {
             int m = l + (r - l) / 2;
             
             String temp = diaword.get(m).sig();
             // Check if x is present at mid
-            if (Integer.parseInt(temp) == num) {
+            if (Long.parseLong(temp) == num) {
             	int yunjin = m;
-            	while(Integer.parseInt(diaword.get(yunjin).sig()) == num)
+            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
             		yunjin--;
             	yunjin++;
             	for(int i = yunjin; i <= m; i++) {
@@ -57,7 +102,7 @@ public class DictionaryListImpl {
                 
  
             // If x greater, ignore left half
-            if (Integer.parseInt(temp) < num)
+            if (Long.parseLong(temp) < num)
                 l = m + 1;
  
             // If x is smaller, ignore right half
@@ -66,31 +111,6 @@ public class DictionaryListImpl {
         }
 		
 		return stringSet;
-	}
-	public DictionaryListImpl() {
-//		Set<String> stringSet = new HashSet<String>();
-		
-		// read file words.txt
-		try {
-			File words = new File("words.txt");
-			Scanner file = new Scanner(words);
-			
-			// if the file has next line
-			while (file.hasNextLine()) {
-				String data = file.nextLine();
-				WordSig aisha = new WordSig(data, wordToSignature(data));
-				diaword.add(aisha);
-			}	
-			Collections.sort(diaword);
-			// close the opened file
-			file.close();
-	    } catch (FileNotFoundException e) { // if the file not found
-	    	System.out.println("An error occurred.");
-	    	e.printStackTrace();
-	    }
-		
-		// return the result
-//		return stringSet;
 	}
 
 }

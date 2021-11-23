@@ -20,8 +20,9 @@ public class WordSig implements Comparable <WordSig>{
 	
 	public int compareTo(WordSig ws) {
 		String temp = this.signature;
-		int suzu = Integer.parseInt(temp);
-		int mamako = Integer.parseInt(ws.signature);
+//		System.out.println("Yowww");
+		long suzu = Long.parseLong(temp);
+		long mamako = Long.parseLong(ws.signature);
 		if(suzu > mamako) return 1;
 		else if(suzu < mamako) return -1;
 		else return 0;

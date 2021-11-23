@@ -10,7 +10,9 @@ public class test2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		DictionaryListImpl.DictionaryListImpl();
-		DictionaryListImpl var = new DictionaryListImpl();
+//		DictionaryListImpl var = new DictionaryListImpl();
+		DictionaryListImpl();
+		
 		String str = "hello"; 
 //				"abcdefghijklmnopqrstuvwxyz";
 		System.out.println("String =" + DictionaryListImpl.wordToSignature(str));
@@ -34,6 +36,11 @@ public class test2 {
 		System.out.println(str6 + " : " + DictionaryListImpl.signatureToWords(str6));
 
 		
+		
+	}
+
+	private static void DictionaryListImpl() {
+		// TODO Auto-generated method stub
 		
 	}
 	
