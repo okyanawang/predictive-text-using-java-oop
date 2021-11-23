@@ -84,7 +84,9 @@ public class DictionaryListImpl {
 	
 	public static Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
-		Long num = Long.parseLong(signature);
+//		Long num = Long.parseLong(signature);
+		
+//		temp.compareTo(ws.signature)
 		
 		int l = 0, r = diaword.size() - 1;
 		System.out.println("yow" + r + "sz");
@@ -93,9 +95,10 @@ public class DictionaryListImpl {
             
             String temp = diaword.get(m).sig();
             // Check if x is present at mid
-            if (Long.parseLong(temp) == num) {
+            if (temp.compareTo(signature) == 0) {
             	int yunjin = m;
-            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
+//            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
+           		while(temp.compareTo(diaword.get(yunjin).sig()) == 0)
             		yunjin--;
             	yunjin++;
             	for(int i = yunjin; i <= m; i++) {
@@ -105,7 +108,7 @@ public class DictionaryListImpl {
                 
  
             // If x greater, ignore left half
-            if (Long.parseLong(temp) < num)
+            if (temp.compareTo(signature) < 0)
                 l = m + 1;
  
             // If x is smaller, ignore right half

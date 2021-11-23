@@ -39,9 +39,9 @@ public class test2 {
 		
 	}
 
-	private static void DictionaryListImpl() {
-		// TODO Auto-generated method stub
-		
-	}
+//	private static void DictionaryListImpl() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 }
