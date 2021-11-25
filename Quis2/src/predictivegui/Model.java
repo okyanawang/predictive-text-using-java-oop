@@ -15,9 +15,9 @@ public class Model extends Observable{
 	private static Dictionary dic = new DictionaryListImpl();
 	private List<String> currMatch;
 	private List<String> signature = new ArrayList<String>();
-    private String currString="";
-    private String response = "";
-    private int i;
+    	private String currString="";
+    	private String response = "";
+    	private int i;
     
     // method for each button pressed
 	public void press(char ch) {
