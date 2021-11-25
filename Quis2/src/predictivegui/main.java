@@ -7,17 +7,17 @@ public class main {
 	 */
 	public static void main(String[] args) throws Exception {
 		// button and text field model
-        javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        	javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
 		// model object
-        Model model = new Model();
+       		Model model = new Model();
 		
-        // view object
-        View view = new View();
+		// view object
+		View view = new View();
 		
-        // controller object
-        Controller controller = new Controller(model, view);
-		
-        // init GUI frame
-        controller.initView("Predictive Text");
+		// controller object
+		Controller controller = new Controller(model, view);
+
+		// init GUI frame
+		controller.initView("Predictive Text");
 	}
 }
