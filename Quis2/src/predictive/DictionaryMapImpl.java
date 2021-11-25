@@ -51,7 +51,7 @@ public class DictionaryMapImpl implements Dictionary{
 		
 	}
 	
-	//Convert Word to Signature, copying function from PredictivePrototype classConvert Word to Signature, copying function from PredictivePrototype class
+	//Convert Word to Signature, copying function from PredictivePrototype class
 	public String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
