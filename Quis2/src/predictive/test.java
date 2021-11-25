@@ -45,16 +45,30 @@ public class test {
 //
 //		String str6 = "47";
 //		System.out.println(str6 + " : " + var.signatureToWords(str6));
-		Set<String> s = new HashSet<String>();
-		s.add("ets");
-		s.add("etsda");
-		s.add("etdas");
-		System.out.println(s);
-		for (String value : s)
-            System.out.print(value + ", ");
-         
-        System.out.println();
+//		Set<String> s = new HashSet<String>();
+//		s.add("ets");
+//		s.add("etsda");
+//		s.add("etdas");
+//		System.out.println(s);
+//		for (String value : s)
+//            System.out.print(value + ", ");
+//		System.out.println();
+//		
+//         
+//		String strr = "ea";
+//		System.out.println(strr.substring(0, strr.length()));
+//        System.out.println();
+//        for (int i=0; i<strr.length(); i++) {
+//        	System.out.println(strr.substring(0, i+1));
+//        }
 		
+		dc = new DictionaryTreeImpl();
+		System.out.println("4663" + " " + dc.signatureToWords("4663"));
+		System.out.println("43556" + " " + dc.signatureToWords("43556"));
+		System.out.println("96753" + " " + dc.signatureToWords("96753"));
+		System.out.println("69" + " " + dc.signatureToWords("69"));
+		System.out.println("6263" + " " + dc.signatureToWords("6263"));
+		System.out.println("47" + " " + dc.signatureToWords("47"));
 		
 	}
 	

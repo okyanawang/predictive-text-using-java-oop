@@ -12,7 +12,7 @@ public class Model extends Observable{
 	
 	// initialize variabel and object
 	private String s = "";
-	private static Dictionary dic = new DictionaryListImpl();
+	private static Dictionary dic = new DictionaryTreeImpl();
 	private List<String> currMatch;
 	private List<String> signature = new ArrayList<String>();
     	private String currString="";
