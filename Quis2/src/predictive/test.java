@@ -2,7 +2,9 @@ package predictive;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 // ini class buat ngetes doang, ntar kaga masuk ke pengumpulan
 public class test {
@@ -23,6 +25,9 @@ public class test {
 		dc = new DictionaryListImpl();
 		System.out.println("List : " + dc.signatureToWords(str));
 		
+		StringBuffer sb = new StringBuffer("1134");
+		sb.deleteCharAt(sb.length()-1);
+		System.out.println(sb);
 //		String str1 = "4663";
 //		System.out.println(str1 + " : " + var.signatureToWords(str1));
 //		
@@ -40,7 +45,15 @@ public class test {
 //
 //		String str6 = "47";
 //		System.out.println(str6 + " : " + var.signatureToWords(str6));
-
+		Set<String> s = new HashSet<String>();
+		s.add("ets");
+		s.add("etsda");
+		s.add("etdas");
+		System.out.println(s);
+		for (String value : s)
+            System.out.print(value + ", ");
+         
+        System.out.println();
 		
 		
 	}

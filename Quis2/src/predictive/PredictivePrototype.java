@@ -4,6 +4,12 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class PredictivePrototype implements Dictionary{
+	
+	/**
+	 * Class for the prototype method
+	 */
+	
+	// method for check if it is a valid word
 	private static boolean isValidWord(String word) {
 		for (int i=0; i<word.length(); i++) {
 			
@@ -16,6 +22,7 @@ public class PredictivePrototype implements Dictionary{
 		return true;
 	}
 	
+	// method to change word to signature 
 	public String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
@@ -45,6 +52,7 @@ public class PredictivePrototype implements Dictionary{
 		return sb.toString();
 	}
 	
+	// method to change signature to the predictive word
 	public Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
 		

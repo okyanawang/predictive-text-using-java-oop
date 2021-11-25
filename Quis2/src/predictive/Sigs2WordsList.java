@@ -2,6 +2,9 @@ package predictive;
 
 
 public class Sigs2WordsList {
+	/**
+	 * Class for testing the wordToSignature method from DictionaryListImpl class
+	 */
 	static Dictionary dc;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -12,6 +15,8 @@ public class Sigs2WordsList {
 		}
 	    long end = System.nanoTime();
 	    long execution = end - start;
+	    
+	    // execution time needed 
 	    System.out.println("Execution time: " + execution + " nanoseconds");
 	}
 }

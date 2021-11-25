@@ -1,7 +1,9 @@
 package predictive;
 
 public class Words2SigProto {
-
+	/**
+	 * Class for testing the wordToSignature method
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PredictivePrototype var = new PredictivePrototype();

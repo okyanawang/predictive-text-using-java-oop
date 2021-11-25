@@ -98,7 +98,7 @@ public class DictionaryListImpl implements Dictionary{
             if (temp.compareTo(signature) == 0) {
             	int yunjin = m, shenhen = m;
 //            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
-           		while(temp.compareTo(diaword.get(yunjin).sig()) == 0)
+           		while(temp.compareTo(diaword.get(yunjin).sig()) == 0 && yunjin > 0)
             		yunjin--;
             	yunjin++;
             	while(temp.compareTo(diaword.get(shenhen).sig()) == 0)
@@ -119,7 +119,6 @@ public class DictionaryListImpl implements Dictionary{
             else
                 r = m - 1;
         }
-		
 		return stringSet;
 	}
 
