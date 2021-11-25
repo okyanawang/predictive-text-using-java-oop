@@ -4,8 +4,10 @@ import java.util.*;
 
 public class DictionaryListImpl implements Dictionary{
 	
+	// Create ArrayList Object with WordSig element -WordSig detail explained on WordSig class
 	static ArrayList<WordSig> diaword = new ArrayList<WordSig>();
 	
+	// method for check if it is a valid word
 	private static boolean isValidWord(String word) {
 		for (int i=0; i<word.length(); i++) {
 			
@@ -20,9 +22,10 @@ public class DictionaryListImpl implements Dictionary{
 	
 	public DictionaryListImpl() {
 		
-		// read file words.txt
+		
 		
 		try {
+			// read file words.txt
 			File words = new File("words.txt");
 			Scanner file = new Scanner(words);
 			
@@ -31,14 +34,15 @@ public class DictionaryListImpl implements Dictionary{
 				String data = file.nextLine();
 				
 				if(isValidWord(data)) {
-//					System.out.println(data);
+					//Convert words to all-LowerCase
 					data = data.toLowerCase();
+					//Adding Word with its signature on Object
 					WordSig aisha = new WordSig(data, wordToSignature(data));
 					diaword.add(aisha);
-//					System.out.print(data);
-//					System.out.println(wordToSignature(data));
 				}
-			}	
+			}
+//			Numerical Order Sort ArrayList with comparison based on CompareTo function
+//			on WordSig class
 			Collections.sort(diaword);
 			// close the opened file
 			file.close();
@@ -47,13 +51,9 @@ public class DictionaryListImpl implements Dictionary{
 	    	e.printStackTrace();
 	    }
 		
-//		System.out.println("Cek");
-//		signatureToWords("4663");
-//		signatureToWords("43556");
-//		signatureToWords("96753");
-		
 	}
 	
+	//Convert Word to Signature, copying function from PredictivePrototype class
 	public String wordToSignature(String word) {
 		StringBuffer sb = new StringBuffer ("");
 		// incase there is upper-case letter
@@ -83,21 +83,25 @@ public class DictionaryListImpl implements Dictionary{
 		return sb.toString();
 	}
 	
+//	Implement signature to Words using searching based on Binary Search Method
 	public Set<String> signatureToWords(String signature){
 		Set<String> stringSet = new HashSet<String>();
-//		Long num = Long.parseLong(signature);
 		
-//		temp.compareTo(ws.signature)
-		
+//		Set l as top left iterator and r as top right iterator of ArrayList
 		int l = 0, r = diaword.size() - 1;
 		while (l <= r) {
+//			Set m as mid iterator
             int m = l + (r - l) / 2;
             
+//          Getting Signature from ArrayList index m
             String temp = diaword.get(m).sig();
-            // Check if x is present at mid
+//          Check if temp element has same value as signature we find
             if (temp.compareTo(signature) == 0) {
             	int yunjin = m, shenhen = m;
-//            	while(Long.parseLong(diaword.get(yunjin).sig()) == num)
+//            	We can't ensure that iterator m will take on first element of it's
+//            	signature list(In case there are more than one word matching with it's
+//            	signature). So, we need to take top left index of it's element (yunjin)
+//            	and top right index of it's element (shenhen)
            		while(temp.compareTo(diaword.get(yunjin).sig()) == 0 && yunjin > 0)
             		yunjin--;
             	yunjin++;
@@ -105,20 +109,21 @@ public class DictionaryListImpl implements Dictionary{
             		shenhen++;
             	shenhen--;
             	for(int i = yunjin; i <= shenhen; i++) {
-            		
+//            		Adding matching word on String Set 
             		stringSet.add(diaword.get(i).wor());
             	}
             }
                 
  
-            // If x greater, ignore left half
+            // If signature value greater, ignore left half
             if (temp.compareTo(signature) < 0)
                 l = m + 1;
  
-            // If x is smaller, ignore right half
+            // If signature value is smaller, ignore right half
             else
                 r = m - 1;
         }
+//		Return Words Set
 		return stringSet;
 	}
 

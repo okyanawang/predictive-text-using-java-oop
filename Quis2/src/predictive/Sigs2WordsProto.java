@@ -16,7 +16,7 @@ public class Sigs2WordsProto {
 	    long end = System.nanoTime();
 	    long execution = end - start;
 	    
-	    // execution time needed 
+	    // execution time needed (Point 2.3)
 	    System.out.println("Execution time: " + execution + " nanoseconds");
 	}
 }

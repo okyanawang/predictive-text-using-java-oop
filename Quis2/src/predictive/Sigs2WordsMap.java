@@ -1,14 +1,14 @@
 package predictive;
 
-public class Sigs2WordsTree {
+public class Sigs2WordsMap {
 
 	/**
-	 * Class for testing the wordToSignature method from DictionaryTreeImpl class
+	 * Class for testing the wordToSignature method from DictionaryMapImpl class
 	 */
 	static Dictionary dc;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		dc = new DictionaryTreeImpl();
+		dc = new DictionaryMapImpl();
 		long start = System.nanoTime();
 		for (int i=0; i<args.length; i++) {
 			System.out.println(args[i] + " : " + dc.signatureToWords(args[i]));
